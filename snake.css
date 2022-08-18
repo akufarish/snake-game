@@ -1,0 +1,8 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+  background-image: url("ular.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom -3.5rem left 0px;
+}
