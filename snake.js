@@ -46,12 +46,27 @@ function update() {
 
   if (snakeX == foodX && snakeY == foodY) {
     snakeBody.push([foodX, foodY]);
+
+    score = snakeBody.length;
+
+    let nilai_text = "Score : " + score;
+    document.getElementById("score").innerHTML = nilai_text;
+
     placeFood();
   }
 
   for (let i = snakeBody.length - 1; i > 0; i--) {
     snakeBody[i] = snakeBody[i - 1];
   }
+
+  // if (snakeBody.length) {
+  //   snakeBody[0] = [snakeX, snakeY];
+  //   // snake.cells = [];
+  //   // snake.maxCells = 4;
+  //   // snake.dx = grid;
+  //   // snake.dy = 0;
+  //   // nilai = 0;
+  // }
 
   if (snakeBody.length) {
     snakeBody[0] = [snakeX, snakeY];
