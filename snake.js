@@ -97,6 +97,7 @@ function update() {
   if (snakeX < 0 || snakeX >= cols * blockSize || snakeY < 0 || snakeY >= rows * blockSize) {
     gameOver = true;
     alert(`Game Over\nScore mu : ${score}`);
+    // jika gameover maka tampilkan tombol play again
     document.getElementById("ulang").innerHTML = '<button onclick="restart()">Play Again</button>';
   }
 
@@ -105,6 +106,7 @@ function update() {
     if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
       gameOver = true;
       alert(`Game Over\nScore mu : ${score}`);
+      // jika gameover maka tampilkan tombol play again
       document.getElementById("ulang").innerHTML = '<button onclick="restart()">Play Again</button>';
     }
   }
