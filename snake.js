@@ -53,8 +53,8 @@ function update() {
   if (snakeX == foodX && snakeY == foodY) {
     snakeBody.push([foodX, foodY]);
 
+    // setiap ular memakan buah maka skor nya akan bertambah
     score = snakeBody.length;
-
     let nilai_text = "Score : " + score;
     document.getElementById("score").innerHTML = nilai_text;
 
