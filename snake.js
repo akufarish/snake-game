@@ -42,7 +42,13 @@ function update() {
 
   // mengatur warna dari makanan
   context.fillStyle = "red";
-  context.fillRect(foodX, foodY, blockSize, blockSize);
+  // context.fillRect(foodX, foodY, blockSize, blockSize);
+  // context.fillRect(foodX, foodY, blockSize, blockSize);
+  context.beginPath();
+  context.arc(foodX, foodY, 13.5, blockSize, blockSize * Math.PI);
+  context.fill();
+  context.closePath();
+  // context.arc(foodX, foodY, blockSize, blockSize, Math.PI);
 
   if (snakeX == foodX && snakeY == foodY) {
     snakeBody.push([foodX, foodY]);
@@ -77,6 +83,10 @@ function update() {
   snakeX += velocityX * blockSize;
   snakeY += velocityY * blockSize;
   context.fillRect(snakeX, snakeY, blockSize, blockSize);
+  // context.beginPath();
+  // context.arc(snakeX, snakeY, 15, blockSize, blockSize * Math.PI);
+  // context.fill();
+  // context.closePath();
   for (let i = 0; i < snakeBody.length; i++) {
     context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
   }
