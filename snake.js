@@ -97,6 +97,7 @@ function update() {
   if (snakeX < 0 || snakeX >= cols * blockSize || snakeY < 0 || snakeY >= rows * blockSize) {
     gameOver = true;
     alert(`Game Over\nScore mu : ${score}`);
+    document.getElementById("ulang").innerHTML = '<button onclick="restart()">Play Again</button>';
   }
 
   // logic jika menabrak buntut ular maka akan gameover
@@ -104,6 +105,7 @@ function update() {
     if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
       gameOver = true;
       alert(`Game Over\nScore mu : ${score}`);
+      document.getElementById("ulang").innerHTML = '<button onclick="restart()">Play Again</button>';
     }
   }
 }
@@ -156,4 +158,8 @@ function ChangeDirection(e) {
 function placeFood() {
   foodX = Math.floor(Math.random() * cols) * blockSize;
   foodY = Math.floor(Math.random() * rows) * blockSize;
+}
+
+function restart() {
+  window.location.reload();
 }
