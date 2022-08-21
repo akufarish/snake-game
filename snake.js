@@ -3,7 +3,7 @@ let rows = 20;
 let cols = 20;
 let board;
 let context;
-let score = document.getElementById("score");
+let score = 0;
 // kepala ular
 let snakeX = blockSize * 5;
 let snakeY = blockSize * 5;
@@ -92,16 +92,16 @@ function update() {
   }
 
   // logic jika tertabrak tembok maka akan gameover
-  if (snakeX < 0 || snakeX > cols * blockSize || snakeY < 0 || snakeY > rows * blockSize) {
+  if (snakeX < 0 || snakeX >= cols * blockSize || snakeY < 0 || snakeY >= rows * blockSize) {
     gameOver = true;
-    alert("Game Over");
+    alert(`Game Over\nScore mu : ${score}`);
   }
 
   // logic jika menabrak buntut ular maka akan gameover
   for (let i = 0; i < snakeBody.length; i++) {
-    if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i[1]]) {
+    if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
       gameOver = true;
-      alert("Game Over");
+      alert(`Game Over\nScore mu : ${score}`);
     }
   }
 }
