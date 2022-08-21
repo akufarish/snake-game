@@ -43,11 +43,11 @@ function update() {
   // mengatur warna dari makanan
   context.fillStyle = "red";
   // context.fillRect(foodX, foodY, blockSize, blockSize);
-  // context.fillRect(foodX, foodY, blockSize, blockSize);
-  context.beginPath();
-  context.arc(foodX, foodY, 13.5, blockSize, blockSize * Math.PI);
-  context.fill();
-  context.closePath();
+  context.fillRect(foodX, foodY, blockSize, blockSize);
+  // context.beginPath();
+  // context.arc(foodX, foodY, 13.5, blockSize, blockSize * Math.PI);
+  // context.fill();
+  // context.closePath();
   // context.arc(foodX, foodY, blockSize, blockSize, Math.PI);
 
   if (snakeX == foodX && snakeY == foodY) {
@@ -82,8 +82,10 @@ function update() {
   context.fillStyle = "lime";
   snakeX += velocityX * blockSize;
   snakeY += velocityY * blockSize;
-  context.fillRect(snakeX, snakeY, blockSize, blockSize);
   // context.beginPath();
+  context.fillRect(snakeX, snakeY, blockSize, blockSize);
+  // context.strokeStyle = "white";
+  // context.Stroke();
   // context.arc(snakeX, snakeY, 15, blockSize, blockSize * Math.PI);
   // context.fill();
   // context.closePath();
@@ -122,33 +124,33 @@ function ChangeDirection(e) {
     velocityY = 0;
   }
 
-  if (e.key == "W" && velocityY != 1) {
-    velocityX = 0;
-    velocityY = -1;
-  } else if (e.key == "S" && velocityY != -1) {
-    velocityX = 0;
-    velocityY = 1;
-  } else if (e.key == "A" && velocityX != 1) {
-    velocityX = -1;
-    velocityY = 0;
-  } else if (e.key == "D" && velocityX != -1) {
-    velocityX = 1;
-    velocityY = 0;
-  }
+  // if (e.key == "W" && velocityY != 1) {
+  //   velocityX = 0;
+  //   velocityY = -1;
+  // } else if (e.key == "S" && velocityY != -1) {
+  //   velocityX = 0;
+  //   velocityY = 1;
+  // } else if (e.key == "A" && velocityX != 1) {
+  //   velocityX = -1;
+  //   velocityY = 0;
+  // } else if (e.key == "D" && velocityX != -1) {
+  //   velocityX = 1;
+  //   velocityY = 0;
+  // }
 
-  if (e.key == "w" && velocityY != 1) {
-    velocityX = 0;
-    velocityY = -1;
-  } else if (e.key == "s" && velocityY != -1) {
-    velocityX = 0;
-    velocityY = 1;
-  } else if (e.key == "a" && velocityX != 1) {
-    velocityX = -1;
-    velocityY = 0;
-  } else if (e.key == "d" && velocityX != -1) {
-    velocityX = 1;
-    velocityY = 0;
-  }
+  // if (e.key == "w" && velocityY != 1) {
+  //   velocityX = 0;
+  //   velocityY = -1;
+  // } else if (e.key == "s" && velocityY != -1) {
+  //   velocityX = 0;
+  //   velocityY = 1;
+  // } else if (e.key == "a" && velocityX != 1) {
+  //   velocityX = -1;
+  //   velocityY = 0;
+  // } else if (e.key == "d" && velocityX != -1) {
+  //   velocityX = 1;
+  //   velocityY = 0;
+  // }
 }
 
 function placeFood() {

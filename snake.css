@@ -1,8 +1,32 @@
 body {
-  font-family: "Courier New", Courier, monospace;
+  /* font-family: "Courier New", Courier, monospace; */
+  font-family: "Silkscreen", cursive;
+  color: #3ccf4e;
+  font-weight: bold;
+
   text-align: center;
-  background-image: url("ular.jpg");
+  /* background-image: url("ular.jpg"); */
+  background: hsla(270, 94%, 25%, 1);
+
+  background: linear-gradient(360deg, hsla(270, 94%, 25%, 1) 0%, hsla(158, 94%, 49%, 1) 100%);
+
+  background: -moz-linear-gradient(360deg, hsla(270, 94%, 25%, 1) 0%, hsla(158, 94%, 49%, 1) 100%);
+
+  background: -webkit-linear-gradient(360deg, hsla(270, 94%, 25%, 1) 0%, hsla(158, 94%, 49%, 1) 100%);
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#42047E", endColorstr="#07F49E", GradientType=1 );
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom -3.5rem left 0px;
+  /* background-position: bottom -3.5rem left 0px; */
+  height: 86.5vh;
+}
+
+.container {
+  column-count: 2;
+  margin-top: 5em;
+}
+
+h1,
+h2 {
+  font-size: 2.5em;
 }
