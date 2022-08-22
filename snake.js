@@ -8,7 +8,7 @@ let score = 0;
 let snakeX = blockSize * 5;
 let snakeY = blockSize * 5;
 const snakeBorder = "10px solid black";
-
+let sec = 0;
 let velocityX = 0;
 let velocityY = 0;
 
@@ -30,10 +30,12 @@ window.onload = function () {
   document.addEventListener("keyup", ChangeDirection);
 
   // update();
+  runTime();
   setInterval(update, 1000 / 10);
 };
 
 function update() {
+  // runTime();
   if (gameOver) {
     return;
   }
@@ -61,6 +63,7 @@ function update() {
     let nilai_text = "Score : " + score;
     document.getElementById("score").innerHTML = nilai_text;
 
+    // runTime();
     placeFood();
   }
 
@@ -106,7 +109,7 @@ function update() {
     // jika gameover maka tampilkan tombol play again
     document.getElementById("ulang").innerHTML = '<button onclick="restart()">Play Again</button>';
     context.font = "30px Hack";
-    context.fillText("GAME OVER", blockSize * 6, blockSize * 10);
+    context.fillText("GAME OVER", blockSize * 7, blockSize * 10);
   }
 
   // logic jika menabrak buntut ular maka akan gameover
@@ -116,10 +119,12 @@ function update() {
       alert(`Game Over\nScore mu : ${score}`);
       // jika gameover maka tampilkan tombol play again
       context.font = "30px Hack";
-      context.fillText("GAME OVER", blockSize * 6, blockSize * 10);
+      context.fillText("GAME OVER", blockSize * 7, blockSize * 10);
       document.getElementById("ulang").innerHTML = '<button onclick="restart()">Play Again</button>';
     }
   }
+
+  // runTime();
 }
 
 // fungsi untuk kontrol snake
@@ -175,3 +180,47 @@ function placeFood() {
 function restart() {
   window.location.reload();
 }
+
+// const timeInterval = setInterval(() => {
+//   document.getElementById("detik").innerHTML = this.time(++sec % 60);
+//   document.getElementById("menit").innerHTML = this.time(parseInt((sec / 60) % 60));
+//   document.getElementById("jam").innerHTML = this.time(parseInt(sec / 3600));
+
+//   // if (this.gameOver == false) {
+//   // clearInterval(timeInterval);
+//   // }
+// });
+
+function time(val) {
+  return val > 9 ? val : "0" + val;
+}
+
+function runTime() {
+  const timeInterval = setInterval(() => {
+    document.getElementById("seconds").innerHTML = ":" + time(++sec % 60);
+    document.getElementById("minutes").innerHTML = ":" + time(parseInt((sec / 60) % 60));
+    document.getElementById("hours").innerHTML = time(parseInt(sec / 3600));
+
+    if (gameOver == true) {
+      clearInterval(timeInterval);
+    }
+  }, 1000);
+}
+
+// function time(val) {
+//   return val > 9 ? val : "0" + val;
+// }
+
+// function runTime() {
+//   const timeInterval = setInterval(() => {
+//     document.getElementById("detik").innerHTML = this.time(++sec % 60);
+//     document.getElementById("menit").innerHTML = this.time(parseInt((sec / 60) % 60));
+//     document.getElementById("jam").innerHTML = this.time(parseInt(sec / 3600));
+
+//     if (this.gameOver == false) {
+//       clearInterval(timeInterval);
+//     }
+//   }, 1000);
+// }
+
+// runTime();
