@@ -12,6 +12,8 @@ let sec = 0;
 let velocityX = 0;
 let velocityY = 0;
 
+let w = rows / snakeY;
+
 let snakeBody = [];
 
 // food
@@ -44,7 +46,7 @@ function update() {
   context.fillRect(0, 0, board.width, board.height);
 
   // mengatur warna dari makanan
-  context.fillStyle = "red";
+  foodColor = context.fillStyle = "red";
   // context.fillRect(foodX, foodY, blockSize, blockSize);
   context.fillRect(foodX, foodY, blockSize, blockSize);
   context.strokeRect(foodX, foodY, blockSize, blockSize);
@@ -65,6 +67,7 @@ function update() {
 
     // runTime();
     placeFood();
+    // runRender();
   }
 
   for (let i = snakeBody.length - 1; i > 0; i--) {
@@ -85,13 +88,13 @@ function update() {
   }
 
   // Logic untuk snake sendiri
-  context.fillStyle = "lime";
+  snakeColor = context.fillStyle = "lime";
   snakeX += velocityX * blockSize;
   snakeY += velocityY * blockSize;
   // context.beginPath();
   context.fillRect(snakeX, snakeY, blockSize, blockSize);
   context.strokeRect(snakeX, snakeY, blockSize, blockSize);
-  context.strokeStyle = "black";
+  snakeBorderColor = context.strokeStyle = "black";
   // context.Stroke();
   // context.arc(snakeX, snakeY, 15, blockSize, blockSize * Math.PI);
   // context.fill();
@@ -109,8 +112,25 @@ function update() {
     // jika gameover maka tampilkan tombol play again
     document.getElementById("ulang").innerHTML = '<button onclick="restart()">Play Again</button>';
     context.font = "30px Hack";
+    context.fillStyle = "#d9534f";
     context.fillText("GAME OVER", blockSize * 7, blockSize * 10);
   }
+
+  // this.snakes = [];
+  // (snakePositions = []), (snakeDx = blockSize.w);
+  // snakeLength = snakeBody.length;
+  // snakesDirection = "right";
+  // snakeSpeed = 250;
+  // snakeX = 0;
+
+  this.snakes = [];
+  (this.snakesTemp = []), (snakeColor = snakeColor);
+  this.snakeLength = snakeBody.length;
+  this.snakesDirection = "right";
+  this.snakeSpeed = 250;
+  // this.snakeBorderColor = params.snakeBorderColor;
+  (this.snakePositions = []), (snakeDx = blockSize.w);
+  this.snakeX = 0;
 
   // logic jika menabrak buntut ular maka akan gameover
   for (let i = 0; i < snakeBody.length; i++) {
@@ -119,6 +139,7 @@ function update() {
       alert(`Game Over\nScore mu : ${score}`);
       // jika gameover maka tampilkan tombol play again
       context.font = "30px Hack";
+      context.fillStyle = "#d9534f";
       context.fillText("GAME OVER", blockSize * 7, blockSize * 10);
       document.getElementById("ulang").innerHTML = '<button onclick="restart()">Play Again</button>';
     }
@@ -191,6 +212,7 @@ function restart() {
 //   // }
 // });
 
+// function untuk timer
 function time(val) {
   return val > 9 ? val : "0" + val;
 }
@@ -224,3 +246,12 @@ function runTime() {
 // }
 
 // runTime();
+
+// function saveSnakePosition() {
+//   if (this.snakePositions.length > 5) {
+//     // Not saving the position
+//     this.snakePositions.shift();
+//   }
+//   let newSnake = this.snakes.slice();
+//   this.snakePositions.push(newSnake);
+// }
