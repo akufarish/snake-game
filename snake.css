@@ -1,6 +1,5 @@
 body {
   /* font-family: "Courier New", Courier, monospace; */
-  font-family: "Silkscreen", cursive;
   color: #3ccf4e;
   font-weight: bold;
 
@@ -28,7 +27,10 @@ body {
 
 h1,
 h2 {
-  font-size: 2.5em;
+  font-size: 3em;
+  /* font-family: "Press Start 2P", cursive; */
+  /* font-family: "Press Start 2P", cursive; */
+  font-family: "Play", sans-serif;
 }
 
 button {
@@ -42,4 +44,8 @@ button {
 
 button:hover {
   background-color: #d9534f;
+}
+
+p {
+  font-size: 20em;
 }

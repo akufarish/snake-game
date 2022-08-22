@@ -7,6 +7,7 @@ let score = 0;
 // kepala ular
 let snakeX = blockSize * 5;
 let snakeY = blockSize * 5;
+const snakeBorder = "10px solid black";
 
 let velocityX = 0;
 let velocityY = 0;
@@ -18,7 +19,7 @@ let foodX = blockSize * 10;
 let foodY = blockSize * 10;
 
 let gameOver = false;
-
+let go = document.getElementById("go");
 window.onload = function () {
   board = document.getElementById("board");
   board.height = rows * blockSize;
@@ -37,13 +38,15 @@ function update() {
     return;
   }
   // mengatur background color dari board game
-  context.fillStyle = "black";
+  context.fillStyle = "#292b2c";
   context.fillRect(0, 0, board.width, board.height);
 
   // mengatur warna dari makanan
   context.fillStyle = "red";
   // context.fillRect(foodX, foodY, blockSize, blockSize);
   context.fillRect(foodX, foodY, blockSize, blockSize);
+  context.strokeRect(foodX, foodY, blockSize, blockSize);
+  context.strokeStyle = "black";
   // context.beginPath();
   // context.arc(foodX, foodY, 13.5, blockSize, blockSize * Math.PI);
   // context.fill();
@@ -84,13 +87,16 @@ function update() {
   snakeY += velocityY * blockSize;
   // context.beginPath();
   context.fillRect(snakeX, snakeY, blockSize, blockSize);
-  // context.strokeStyle = "white";
+  context.strokeRect(snakeX, snakeY, blockSize, blockSize);
+  context.strokeStyle = "black";
   // context.Stroke();
   // context.arc(snakeX, snakeY, 15, blockSize, blockSize * Math.PI);
   // context.fill();
   // context.closePath();
   for (let i = 0; i < snakeBody.length; i++) {
     context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
+    // context.strokeRect(snakeX, snakeY, blockSize, blockSize);
+    context.strokeRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
   }
 
   // logic jika tertabrak tembok maka akan gameover
@@ -99,6 +105,8 @@ function update() {
     alert(`Game Over\nScore mu : ${score}`);
     // jika gameover maka tampilkan tombol play again
     document.getElementById("ulang").innerHTML = '<button onclick="restart()">Play Again</button>';
+    context.font = "30px Hack";
+    context.fillText("GAME OVER", blockSize * 6, blockSize * 10);
   }
 
   // logic jika menabrak buntut ular maka akan gameover
@@ -107,6 +115,8 @@ function update() {
       gameOver = true;
       alert(`Game Over\nScore mu : ${score}`);
       // jika gameover maka tampilkan tombol play again
+      context.font = "30px Hack";
+      context.fillText("GAME OVER", blockSize * 6, blockSize * 10);
       document.getElementById("ulang").innerHTML = '<button onclick="restart()">Play Again</button>';
     }
   }
