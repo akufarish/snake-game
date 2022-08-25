@@ -122,15 +122,16 @@ function update() {
   // snakesDirection = "right";
   // snakeSpeed = 250;
   // snakeX = 0;
+  // context.snakeBody;
+  // context.snakesTemp, (snakeColor = snakeColor);
+  // context.snakeLength = snakeBody.length;
+  // context.snakesDirection = "right";
+  // context.snakeSpeed = 250;
+  // // context.snakeBorderColor = params.snakeBorderColor;
+  // (context.snakePositions = []), (snakeY = context.snakeX);
+  // context.snakeX = 0;
 
-  this.snakes = [];
-  (this.snakesTemp = []), (snakeColor = snakeColor);
-  this.snakeLength = snakeBody.length;
-  this.snakesDirection = "right";
-  this.snakeSpeed = 250;
-  // this.snakeBorderColor = params.snakeBorderColor;
-  (this.snakePositions = []), (snakeDx = blockSize.w);
-  this.snakeX = 0;
+  
 
   // logic jika menabrak buntut ular maka akan gameover
   for (let i = 0; i < snakeBody.length; i++) {
